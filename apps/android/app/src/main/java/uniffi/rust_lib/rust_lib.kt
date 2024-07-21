@@ -779,6 +779,8 @@ internal open class UniffiVTableCallbackInterfaceCallbackTrait(
 
 
 
+
+
 // A JNA Library to expose the extern-C FFI definitions.
 // This is an implementation detail which will be called internally by the public API.
 
@@ -819,6 +821,8 @@ internal interface UniffiLib : Library {
     fun uniffi_rust_lib_fn_func_add_input(`input`: RustBuffer.ByValue,uniffi_out_err: UniffiRustCallStatus, 
     ): RustBuffer.ByValue
     fun uniffi_rust_lib_fn_func_async_add(`left`: Int,`right`: Int,
+    ): Long
+    fun uniffi_rust_lib_fn_func_async_minus(`left`: Int,`right`: Int,
     ): Long
     fun uniffi_rust_lib_fn_func_is_odd(`num`: Int,
     ): Long
@@ -942,6 +946,8 @@ internal interface UniffiLib : Library {
     ): Short
     fun uniffi_rust_lib_checksum_func_async_add(
     ): Short
+    fun uniffi_rust_lib_checksum_func_async_minus(
+    ): Short
     fun uniffi_rust_lib_checksum_func_is_odd(
     ): Short
     fun uniffi_rust_lib_checksum_func_register(
@@ -986,6 +992,9 @@ private fun uniffiCheckApiChecksums(lib: UniffiLib) {
         throw RuntimeException("UniFFI API checksum mismatch: try cleaning and rebuilding your project")
     }
     if (lib.uniffi_rust_lib_checksum_func_async_add() != 52965.toShort()) {
+        throw RuntimeException("UniFFI API checksum mismatch: try cleaning and rebuilding your project")
+    }
+    if (lib.uniffi_rust_lib_checksum_func_async_minus() != 41304.toShort()) {
         throw RuntimeException("UniFFI API checksum mismatch: try cleaning and rebuilding your project")
     }
     if (lib.uniffi_rust_lib_checksum_func_is_odd() != 22460.toShort()) {
@@ -2055,6 +2064,20 @@ public object FfiConverterTypeCallbackTrait: FfiConverterCallbackInterface<Callb
      suspend fun `asyncAdd`(`left`: kotlin.Int, `right`: kotlin.Int) : kotlin.Int {
         return uniffiRustCallAsync(
         UniffiLib.INSTANCE.uniffi_rust_lib_fn_func_async_add(FfiConverterInt.lower(`left`),FfiConverterInt.lower(`right`),),
+        { future, callback, continuation -> UniffiLib.INSTANCE.ffi_rust_lib_rust_future_poll_i32(future, callback, continuation) },
+        { future, continuation -> UniffiLib.INSTANCE.ffi_rust_lib_rust_future_complete_i32(future, continuation) },
+        { future -> UniffiLib.INSTANCE.ffi_rust_lib_rust_future_free_i32(future) },
+        // lift function
+        { FfiConverterInt.lift(it) },
+        // Error FFI converter
+        UniffiNullRustCallStatusErrorHandler,
+    )
+    }
+
+    @Suppress("ASSIGNED_BUT_NEVER_ACCESSED_VARIABLE")
+     suspend fun `asyncMinus`(`left`: kotlin.Int, `right`: kotlin.Int) : kotlin.Int {
+        return uniffiRustCallAsync(
+        UniffiLib.INSTANCE.uniffi_rust_lib_fn_func_async_minus(FfiConverterInt.lower(`left`),FfiConverterInt.lower(`right`),),
         { future, callback, continuation -> UniffiLib.INSTANCE.ffi_rust_lib_rust_future_poll_i32(future, callback, continuation) },
         { future, continuation -> UniffiLib.INSTANCE.ffi_rust_lib_rust_future_complete_i32(future, continuation) },
         { future -> UniffiLib.INSTANCE.ffi_rust_lib_rust_future_free_i32(future) },

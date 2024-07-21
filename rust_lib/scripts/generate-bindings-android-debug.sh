@@ -1,7 +1,15 @@
 #!/bin/zsh
 
+start_time=$(date +%s)
+script_path=$(
+  cd $(dirname $0)
+  pwd
+)
+project_path=$(readlink -f $script_path/../)
+echo "start time: ${start_time}"
+cd $project_path
+
 #pushd rust_lib
-cd ..
 # targets=("aarch64-linux-android" "armv7-linux-androideabi" "x86_64-linux-android")
 targets=("aarch64-linux-android")
 

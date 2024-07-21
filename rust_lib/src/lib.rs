@@ -53,6 +53,11 @@ pub async fn async_add(left: i32, right: i32) -> i32 {
 }
 
 #[uniffi::export]
+pub async fn async_minus(left: i32, right: i32) -> i32 {
+    left - right
+}
+
+#[uniffi::export]
 pub fn add(left: i32, right: i32) -> i32 {
     left + right
 }

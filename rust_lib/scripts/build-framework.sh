@@ -1,11 +1,16 @@
 # make bindings
 
+start_time=$(date +%s)
+script_path=$(cd $(dirname $0); pwd)
+project_path=$(readlink -f $script_path/../)
+echo "start time: ${start_time}"
+cd $project_path
+
 # 构建 iOS .a产物
-chmod +x generate-bindings-ios.sh
-./generate-bindings-ios.sh
+chmod +x ./scripts/generate-bindings-ios.sh
+./scripts/generate-bindings-ios.sh
 
 # 构建 iOS .xcframework 产物
-cd ..
 
 DEST="./out/rust_lib_framework.xcframework"
 ENV="release"

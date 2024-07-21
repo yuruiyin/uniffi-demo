@@ -17,15 +17,17 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.example.uniffitest.ui.theme.UniffiTestTheme
 import com.example.uniffitest.utils.TimeUtil
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import uniffi.rust_lib.AndroidConfig
 import uniffi.rust_lib.AndroidDelegate
 import uniffi.rust_lib.CallbackTrait
 import uniffi.rust_lib.Input
-import kotlin.coroutines.coroutineContext
 
 class MainActivity : ComponentActivity() {
+
+    companion object {
+        const val TAG = "rust";
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -89,14 +91,17 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
     // 回调函数
     uniffi.rust_lib.MathManager().testCallback(object : CallbackTrait {
         override fun call(message: String) {
-            println("callback from rust: $message")
+            Log.d(MainActivity.TAG, "callback from rust: $message")
         }
     })
 
     // async
     scope.launch(Dispatchers.IO) {
-        val res = uniffi.rust_lib.asyncAdd(4, 2)
-        println("async add result: $res")
+        val asyncAddRes = uniffi.rust_lib.asyncAdd(4, 2)
+        Log.d(MainActivity.TAG, "async add result: $asyncAddRes")
+
+        val asyncMinusRes = uniffi.rust_lib.asyncMinus(5, 2)
+        Log.d(MainActivity.TAG, "async minus result: $asyncMinusRes")
     }
 
     // 测试rust的result
@@ -104,18 +109,18 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
         try {
             val res = uniffi.rust_lib.isOdd(-1)
         } catch (e: Exception) {
-            println("too small res: $e")
+            Log.d(MainActivity.TAG, "too small res: $e")
         }
         try {
             val res = uniffi.rust_lib.isOdd(101)
         } catch (e: Exception) {
-            println("too big res: $e")
+            Log.d(MainActivity.TAG, "too big res: $e")
         }
 
         val oddRes = uniffi.rust_lib.isOdd(97)
-        println("odd res: $oddRes")
+        Log.d(MainActivity.TAG, "odd res: $oddRes")
         val evenRes = uniffi.rust_lib.isOdd(98)
-        println("even res: $evenRes")
+        Log.d(MainActivity.TAG, "even res: $evenRes")
     }
 
     Text(

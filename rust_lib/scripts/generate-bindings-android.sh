@@ -1,7 +1,15 @@
 #!/bin/zsh
 
+start_time=$(date +%s)
+script_path=$(
+  cd $(dirname $0)
+  pwd
+)
+project_path=$(readlink -f $script_path/../)
+echo "start time: ${start_time}"
+cd $project_path
+
 #pushd rust_lib
-cd ..
 # targets=("aarch64-linux-android" "armv7-linux-androideabi" "x86_64-linux-android")
 targets=("aarch64-linux-android")
 
@@ -39,7 +47,7 @@ for target in "${targets[@]}"; do
   if [ $? -ne 0 ]; then
     echo "cargo run failed"
     exit 1
-  fi  
+  fi
 
   # 3. 将生成的 uniffi 目录拷贝到 android 工程中
   cp -r out/${target}/uniffi ../apps/android/app/src/main/java/

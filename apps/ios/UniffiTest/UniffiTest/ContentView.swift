@@ -53,6 +53,10 @@ struct ContentView: View {
                         let asyncAddRes = await asyncAdd(left: 1, right: 2)
                         print("asyncAdd: \(asyncAddRes)")
                         
+                        // async minus
+                        let asyncMinusRes = await asyncMinus(left: 6, right: 2)
+                        print("asyncMinus: \(asyncMinusRes)")
+                        
                         // 乘法
                         let mathManager = MathManager()
                         let multiplyRes = mathManager.multiply(left: 2, right: 3)
