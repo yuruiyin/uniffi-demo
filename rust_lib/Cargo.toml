@@ -1,0 +1,20 @@
+[package]
+name = "rust_lib"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+uniffi = { version = "0.28.0", features = ["build", "cli"] }
+lazy_static = "1.5.0"
+tokio = { version = "1.38.1", features = ["full"] } # 异步处理
+async-trait = "0.1.81"
+
+[build-dependencies]
+uniffi = { version = "0.28.0", features = ["bindgen"] }
+
+[lib]
+crate-type = ["cdylib", "lib", "staticlib"]
+
+[[bin]]
+name = "uniffi-bindgen"
+path = "uniffi-bindgen.rs"
