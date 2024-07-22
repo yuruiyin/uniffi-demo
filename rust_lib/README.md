@@ -1,8 +1,8 @@
 ## 构建流程
 ### 构建 iOS
 ```shell
-chmod +x ./scripts/build-framework-ios.sh
-./scripts/build-framework-ios.sh
+chmod +x ./scripts/build-framework.sh
+./scripts/build-framework.sh
 ```
 
 ### 构建 Android
