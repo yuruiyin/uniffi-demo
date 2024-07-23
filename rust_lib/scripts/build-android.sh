@@ -1,5 +1,16 @@
 #!/bin/zsh
 
+# 构建类型 debug or release
+build_type=debug
+#build_type=release
+
+# 根据构建类型获取当前构建profile dev or release
+if [ "$build_type" = "debug" ]; then
+  profile=dev
+else
+  profile=release
+fi
+
 start_time=$(date +%s)
 script_path=$(
   cd $(dirname $0)
@@ -30,7 +41,7 @@ target_map["x86_64-linux-android"]="x86_64"
 for target in "${targets[@]}"; do
   echo "Generating target=${target}"
   # 1. 构建产物
-  cargo build --target $target
+  cargo build --target $target --profile=$profile --features uniffi
 
   if [ $? -ne 0 ]; then
     echo "cargo build failed"
@@ -40,7 +51,7 @@ for target in "${targets[@]}"; do
   # 2. 生成kotlin bingdings(uniffi/rust_lib/rust_lib.kt)
   cargo run \
     --bin uniffi-bindgen generate \
-    --library target/${target}/debug/librust_lib.so \
+    --library target/${target}/$build_type/librust_lib.so \
     --language kotlin \
     --out-dir out/${target}
 
@@ -59,7 +70,7 @@ for target in "${targets[@]}"; do
   if [ ! -d ${target_dir} ]; then
     mkdir -p ${target_dir}
   fi
-  cp target/${target}/debug/librust_lib.so ${target_dir}/librust_lib.so
+  cp target/${target}/$build_type/librust_lib.so ${target_dir}/librust_lib.so
   # mv out/${target}/shared_libFFI.modulemap out/${target}/module.modulemap
 done
 #popd
