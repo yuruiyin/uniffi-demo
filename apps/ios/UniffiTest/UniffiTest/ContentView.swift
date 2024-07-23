@@ -7,13 +7,14 @@
 
 import SwiftUI
 
-class RustDelegate: AndroidDelegate {
-    func getAndroidConfig() async -> AndroidConfig {
-        return AndroidConfig(version: 1, brand: "ios brand", model: "ios model")
+class RustDelegate: AppDelegate {
+    func getAppConfig() async -> AppConfig {
+        let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
+        return AppConfig(version: version!, env: "fat", userId: "123456")
     }
     
-    func getCurrentActivity() async -> String {
-        return "ios controller"
+    func getCurrentPage() async -> String {
+        return "ios page"
     }
     
     func logD(tag: String, message: String) async {

@@ -13,8 +13,8 @@ header_dir="out"
 static_lib_name="librust_lib.a"
 target_dir="target"
 
-chmod +x ./scripts/generate-bindings-ios.sh
-./scripts/generate-bindings-ios.sh $build_type
+chmod +x ./scripts/build-ios.sh
+./scripts/build-ios.sh $build_type
 
 # 构建 iOS .xcframework 产物
 

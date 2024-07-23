@@ -640,40 +640,40 @@ internal open class UniffiForeignFutureStructVoid(
 internal interface UniffiForeignFutureCompleteVoid : com.sun.jna.Callback {
     fun callback(`callbackData`: Long,`result`: UniffiForeignFutureStructVoid.UniffiByValue,)
 }
-internal interface UniffiCallbackInterfaceAndroidDelegateMethod0 : com.sun.jna.Callback {
+internal interface UniffiCallbackInterfaceAppDelegateMethod0 : com.sun.jna.Callback {
     fun callback(`uniffiHandle`: Long,`uniffiFutureCallback`: UniffiForeignFutureCompleteRustBuffer,`uniffiCallbackData`: Long,`uniffiOutReturn`: UniffiForeignFuture,)
 }
-internal interface UniffiCallbackInterfaceAndroidDelegateMethod1 : com.sun.jna.Callback {
+internal interface UniffiCallbackInterfaceAppDelegateMethod1 : com.sun.jna.Callback {
     fun callback(`uniffiHandle`: Long,`uniffiFutureCallback`: UniffiForeignFutureCompleteRustBuffer,`uniffiCallbackData`: Long,`uniffiOutReturn`: UniffiForeignFuture,)
 }
-internal interface UniffiCallbackInterfaceAndroidDelegateMethod2 : com.sun.jna.Callback {
+internal interface UniffiCallbackInterfaceAppDelegateMethod2 : com.sun.jna.Callback {
     fun callback(`uniffiHandle`: Long,`tag`: RustBuffer.ByValue,`message`: RustBuffer.ByValue,`uniffiFutureCallback`: UniffiForeignFutureCompleteVoid,`uniffiCallbackData`: Long,`uniffiOutReturn`: UniffiForeignFuture,)
 }
-internal interface UniffiCallbackInterfaceAndroidDelegateMethod3 : com.sun.jna.Callback {
+internal interface UniffiCallbackInterfaceAppDelegateMethod3 : com.sun.jna.Callback {
     fun callback(`uniffiHandle`: Long,`uniffiFutureCallback`: UniffiForeignFutureCompleteRustBuffer,`uniffiCallbackData`: Long,`uniffiOutReturn`: UniffiForeignFuture,)
 }
 internal interface UniffiCallbackInterfaceCallbackTraitMethod0 : com.sun.jna.Callback {
     fun callback(`uniffiHandle`: Long,`message`: RustBuffer.ByValue,`uniffiOutReturn`: Pointer,uniffiCallStatus: UniffiRustCallStatus,)
 }
-@Structure.FieldOrder("getAndroidConfig", "getCurrentActivity", "logD", "getSystemTime", "uniffiFree")
-internal open class UniffiVTableCallbackInterfaceAndroidDelegate(
-    @JvmField internal var `getAndroidConfig`: UniffiCallbackInterfaceAndroidDelegateMethod0? = null,
-    @JvmField internal var `getCurrentActivity`: UniffiCallbackInterfaceAndroidDelegateMethod1? = null,
-    @JvmField internal var `logD`: UniffiCallbackInterfaceAndroidDelegateMethod2? = null,
-    @JvmField internal var `getSystemTime`: UniffiCallbackInterfaceAndroidDelegateMethod3? = null,
+@Structure.FieldOrder("getAppConfig", "getCurrentPage", "logD", "getSystemTime", "uniffiFree")
+internal open class UniffiVTableCallbackInterfaceAppDelegate(
+    @JvmField internal var `getAppConfig`: UniffiCallbackInterfaceAppDelegateMethod0? = null,
+    @JvmField internal var `getCurrentPage`: UniffiCallbackInterfaceAppDelegateMethod1? = null,
+    @JvmField internal var `logD`: UniffiCallbackInterfaceAppDelegateMethod2? = null,
+    @JvmField internal var `getSystemTime`: UniffiCallbackInterfaceAppDelegateMethod3? = null,
     @JvmField internal var `uniffiFree`: UniffiCallbackInterfaceFree? = null,
 ) : Structure() {
     class UniffiByValue(
-        `getAndroidConfig`: UniffiCallbackInterfaceAndroidDelegateMethod0? = null,
-        `getCurrentActivity`: UniffiCallbackInterfaceAndroidDelegateMethod1? = null,
-        `logD`: UniffiCallbackInterfaceAndroidDelegateMethod2? = null,
-        `getSystemTime`: UniffiCallbackInterfaceAndroidDelegateMethod3? = null,
+        `getAppConfig`: UniffiCallbackInterfaceAppDelegateMethod0? = null,
+        `getCurrentPage`: UniffiCallbackInterfaceAppDelegateMethod1? = null,
+        `logD`: UniffiCallbackInterfaceAppDelegateMethod2? = null,
+        `getSystemTime`: UniffiCallbackInterfaceAppDelegateMethod3? = null,
         `uniffiFree`: UniffiCallbackInterfaceFree? = null,
-    ): UniffiVTableCallbackInterfaceAndroidDelegate(`getAndroidConfig`,`getCurrentActivity`,`logD`,`getSystemTime`,`uniffiFree`,), Structure.ByValue
+    ): UniffiVTableCallbackInterfaceAppDelegate(`getAppConfig`,`getCurrentPage`,`logD`,`getSystemTime`,`uniffiFree`,), Structure.ByValue
 
-   internal fun uniffiSetValue(other: UniffiVTableCallbackInterfaceAndroidDelegate) {
-        `getAndroidConfig` = other.`getAndroidConfig`
-        `getCurrentActivity` = other.`getCurrentActivity`
+   internal fun uniffiSetValue(other: UniffiVTableCallbackInterfaceAppDelegate) {
+        `getAppConfig` = other.`getAppConfig`
+        `getCurrentPage` = other.`getCurrentPage`
         `logD` = other.`logD`
         `getSystemTime` = other.`getSystemTime`
         `uniffiFree` = other.`uniffiFree`
@@ -791,7 +791,7 @@ internal interface UniffiLib : Library {
             .also { lib: UniffiLib ->
                 uniffiCheckContractApiVersion(lib)
                 uniffiCheckApiChecksums(lib)
-                uniffiCallbackInterfaceAndroidDelegate.register(lib)
+                uniffiCallbackInterfaceAppDelegate.register(lib)
                 uniffiCallbackInterfaceCallbackTrait.register(lib)
                 }
         }
@@ -812,7 +812,7 @@ internal interface UniffiLib : Library {
     ): Int
     fun uniffi_rust_lib_fn_method_mathmanager_test_callback(`ptr`: Pointer,`callback`: Long,uniffi_out_err: UniffiRustCallStatus, 
     ): Unit
-    fun uniffi_rust_lib_fn_init_callback_vtable_androiddelegate(`vtable`: UniffiVTableCallbackInterfaceAndroidDelegate,
+    fun uniffi_rust_lib_fn_init_callback_vtable_appdelegate(`vtable`: UniffiVTableCallbackInterfaceAppDelegate,
     ): Unit
     fun uniffi_rust_lib_fn_init_callback_vtable_callbacktrait(`vtable`: UniffiVTableCallbackInterfaceCallbackTrait,
     ): Unit
@@ -958,13 +958,13 @@ internal interface UniffiLib : Library {
     ): Short
     fun uniffi_rust_lib_checksum_constructor_mathmanager_new(
     ): Short
-    fun uniffi_rust_lib_checksum_method_androiddelegate_get_android_config(
+    fun uniffi_rust_lib_checksum_method_appdelegate_get_app_config(
     ): Short
-    fun uniffi_rust_lib_checksum_method_androiddelegate_get_current_activity(
+    fun uniffi_rust_lib_checksum_method_appdelegate_get_current_page(
     ): Short
-    fun uniffi_rust_lib_checksum_method_androiddelegate_log_d(
+    fun uniffi_rust_lib_checksum_method_appdelegate_log_d(
     ): Short
-    fun uniffi_rust_lib_checksum_method_androiddelegate_get_system_time(
+    fun uniffi_rust_lib_checksum_method_appdelegate_get_system_time(
     ): Short
     fun uniffi_rust_lib_checksum_method_callbacktrait_call(
     ): Short
@@ -997,10 +997,10 @@ private fun uniffiCheckApiChecksums(lib: UniffiLib) {
     if (lib.uniffi_rust_lib_checksum_func_async_minus() != 41304.toShort()) {
         throw RuntimeException("UniFFI API checksum mismatch: try cleaning and rebuilding your project")
     }
-    if (lib.uniffi_rust_lib_checksum_func_is_odd() != 22460.toShort()) {
+    if (lib.uniffi_rust_lib_checksum_func_is_odd() != 22701.toShort()) {
         throw RuntimeException("UniFFI API checksum mismatch: try cleaning and rebuilding your project")
     }
-    if (lib.uniffi_rust_lib_checksum_func_register() != 9707.toShort()) {
+    if (lib.uniffi_rust_lib_checksum_func_register() != 21443.toShort()) {
         throw RuntimeException("UniFFI API checksum mismatch: try cleaning and rebuilding your project")
     }
     if (lib.uniffi_rust_lib_checksum_method_mathmanager_multiply() != 48002.toShort()) {
@@ -1012,16 +1012,16 @@ private fun uniffiCheckApiChecksums(lib: UniffiLib) {
     if (lib.uniffi_rust_lib_checksum_constructor_mathmanager_new() != 41883.toShort()) {
         throw RuntimeException("UniFFI API checksum mismatch: try cleaning and rebuilding your project")
     }
-    if (lib.uniffi_rust_lib_checksum_method_androiddelegate_get_android_config() != 42034.toShort()) {
+    if (lib.uniffi_rust_lib_checksum_method_appdelegate_get_app_config() != 1781.toShort()) {
         throw RuntimeException("UniFFI API checksum mismatch: try cleaning and rebuilding your project")
     }
-    if (lib.uniffi_rust_lib_checksum_method_androiddelegate_get_current_activity() != 2747.toShort()) {
+    if (lib.uniffi_rust_lib_checksum_method_appdelegate_get_current_page() != 44183.toShort()) {
         throw RuntimeException("UniFFI API checksum mismatch: try cleaning and rebuilding your project")
     }
-    if (lib.uniffi_rust_lib_checksum_method_androiddelegate_log_d() != 31195.toShort()) {
+    if (lib.uniffi_rust_lib_checksum_method_appdelegate_log_d() != 54891.toShort()) {
         throw RuntimeException("UniFFI API checksum mismatch: try cleaning and rebuilding your project")
     }
-    if (lib.uniffi_rust_lib_checksum_method_androiddelegate_get_system_time() != 46802.toShort()) {
+    if (lib.uniffi_rust_lib_checksum_method_appdelegate_get_system_time() != 2059.toShort()) {
         throw RuntimeException("UniFFI API checksum mismatch: try cleaning and rebuilding your project")
     }
     if (lib.uniffi_rust_lib_checksum_method_callbacktrait_call() != 54182.toShort()) {
@@ -1588,36 +1588,72 @@ public object FfiConverterTypeMathManager: FfiConverter<MathManager, Pointer> {
 
 
 /**
- * android平台的相关配置
+ * 原生平台的相关配置
  */
-data class AndroidConfig (
-    var `version`: kotlin.Int, 
-    var `brand`: kotlin.String, 
-    var `model`: kotlin.String
+data class AppConfig (
+    var `version`: kotlin.String, 
+    var `env`: kotlin.String, 
+    var `userId`: kotlin.String
 ) {
     
     companion object
 }
 
-public object FfiConverterTypeAndroidConfig: FfiConverterRustBuffer<AndroidConfig> {
-    override fun read(buf: ByteBuffer): AndroidConfig {
-        return AndroidConfig(
-            FfiConverterInt.read(buf),
+public object FfiConverterTypeAppConfig: FfiConverterRustBuffer<AppConfig> {
+    override fun read(buf: ByteBuffer): AppConfig {
+        return AppConfig(
+            FfiConverterString.read(buf),
             FfiConverterString.read(buf),
             FfiConverterString.read(buf),
         )
     }
 
-    override fun allocationSize(value: AndroidConfig) = (
-            FfiConverterInt.allocationSize(value.`version`) +
-            FfiConverterString.allocationSize(value.`brand`) +
-            FfiConverterString.allocationSize(value.`model`)
+    override fun allocationSize(value: AppConfig) = (
+            FfiConverterString.allocationSize(value.`version`) +
+            FfiConverterString.allocationSize(value.`env`) +
+            FfiConverterString.allocationSize(value.`userId`)
     )
 
-    override fun write(value: AndroidConfig, buf: ByteBuffer) {
-            FfiConverterInt.write(value.`version`, buf)
-            FfiConverterString.write(value.`brand`, buf)
-            FfiConverterString.write(value.`model`, buf)
+    override fun write(value: AppConfig, buf: ByteBuffer) {
+            FfiConverterString.write(value.`version`, buf)
+            FfiConverterString.write(value.`env`, buf)
+            FfiConverterString.write(value.`userId`, buf)
+    }
+}
+
+
+
+/**
+ * 日志输入
+ */
+data class AppLog (
+    var `level`: AppLogLevel, 
+    var `tag`: kotlin.String, 
+    var `message`: kotlin.String
+) {
+    
+    companion object
+}
+
+public object FfiConverterTypeAppLog: FfiConverterRustBuffer<AppLog> {
+    override fun read(buf: ByteBuffer): AppLog {
+        return AppLog(
+            FfiConverterTypeAppLogLevel.read(buf),
+            FfiConverterString.read(buf),
+            FfiConverterString.read(buf),
+        )
+    }
+
+    override fun allocationSize(value: AppLog) = (
+            FfiConverterTypeAppLogLevel.allocationSize(value.`level`) +
+            FfiConverterString.allocationSize(value.`tag`) +
+            FfiConverterString.allocationSize(value.`message`)
+    )
+
+    override fun write(value: AppLog, buf: ByteBuffer) {
+            FfiConverterTypeAppLogLevel.write(value.`level`, buf)
+            FfiConverterString.write(value.`tag`, buf)
+            FfiConverterString.write(value.`message`, buf)
     }
 }
 
@@ -1678,17 +1714,47 @@ public object FfiConverterTypeOutput: FfiConverterRustBuffer<Output> {
 
 
 
+enum class AppLogLevel {
+    
+    VERBOSE,
+    DEBUG,
+    INFO,
+    WARN,
+    ERROR;
+    companion object
+}
 
-sealed class GdException: kotlin.Exception() {
+
+public object FfiConverterTypeAppLogLevel: FfiConverterRustBuffer<AppLogLevel> {
+    override fun read(buf: ByteBuffer) = try {
+        AppLogLevel.values()[buf.getInt() - 1]
+    } catch (e: IndexOutOfBoundsException) {
+        throw RuntimeException("invalid enum value, something is very wrong!!", e)
+    }
+
+    override fun allocationSize(value: AppLogLevel) = 4UL
+
+    override fun write(value: AppLogLevel, buf: ByteBuffer) {
+        buf.putInt(value.ordinal + 1)
+    }
+}
+
+
+
+
+
+
+
+sealed class UniffiException: kotlin.Exception() {
     
     class NumberTooLarge(
-        ) : GdException() {
+        ) : UniffiException() {
         override val message
             get() = ""
     }
     
     class NumberTooSmall(
-        ) : GdException() {
+        ) : UniffiException() {
         override val message
             get() = ""
     }
@@ -1696,44 +1762,44 @@ sealed class GdException: kotlin.Exception() {
     class InitException(
         
         val v1: kotlin.String
-        ) : GdException() {
+        ) : UniffiException() {
         override val message
             get() = "v1=${ v1 }"
     }
     
 
-    companion object ErrorHandler : UniffiRustCallStatusErrorHandler<GdException> {
-        override fun lift(error_buf: RustBuffer.ByValue): GdException = FfiConverterTypeGDError.lift(error_buf)
+    companion object ErrorHandler : UniffiRustCallStatusErrorHandler<UniffiException> {
+        override fun lift(error_buf: RustBuffer.ByValue): UniffiException = FfiConverterTypeUniffiError.lift(error_buf)
     }
 
     
 }
 
-public object FfiConverterTypeGDError : FfiConverterRustBuffer<GdException> {
-    override fun read(buf: ByteBuffer): GdException {
+public object FfiConverterTypeUniffiError : FfiConverterRustBuffer<UniffiException> {
+    override fun read(buf: ByteBuffer): UniffiException {
         
 
         return when(buf.getInt()) {
-            1 -> GdException.NumberTooLarge()
-            2 -> GdException.NumberTooSmall()
-            3 -> GdException.InitException(
+            1 -> UniffiException.NumberTooLarge()
+            2 -> UniffiException.NumberTooSmall()
+            3 -> UniffiException.InitException(
                 FfiConverterString.read(buf),
                 )
             else -> throw RuntimeException("invalid error enum value, something is very wrong!!")
         }
     }
 
-    override fun allocationSize(value: GdException): ULong {
+    override fun allocationSize(value: UniffiException): ULong {
         return when(value) {
-            is GdException.NumberTooLarge -> (
+            is UniffiException.NumberTooLarge -> (
                 // Add the size for the Int that specifies the variant plus the size needed for all fields
                 4UL
             )
-            is GdException.NumberTooSmall -> (
+            is UniffiException.NumberTooSmall -> (
                 // Add the size for the Int that specifies the variant plus the size needed for all fields
                 4UL
             )
-            is GdException.InitException -> (
+            is UniffiException.InitException -> (
                 // Add the size for the Int that specifies the variant plus the size needed for all fields
                 4UL
                 + FfiConverterString.allocationSize(value.v1)
@@ -1741,17 +1807,17 @@ public object FfiConverterTypeGDError : FfiConverterRustBuffer<GdException> {
         }
     }
 
-    override fun write(value: GdException, buf: ByteBuffer) {
+    override fun write(value: UniffiException, buf: ByteBuffer) {
         when(value) {
-            is GdException.NumberTooLarge -> {
+            is UniffiException.NumberTooLarge -> {
                 buf.putInt(1)
                 Unit
             }
-            is GdException.NumberTooSmall -> {
+            is UniffiException.NumberTooSmall -> {
                 buf.putInt(2)
                 Unit
             }
-            is GdException.InitException -> {
+            is UniffiException.InitException -> {
                 buf.putInt(3)
                 FfiConverterString.write(value.v1, buf)
                 Unit
@@ -1766,22 +1832,22 @@ public object FfiConverterTypeGDError : FfiConverterRustBuffer<GdException> {
 
 
 /**
- * 获取android平台的相关能力
+ * 获取原生平台（Android, iOS）的相关能力
  */
-public interface AndroidDelegate {
+public interface AppDelegate {
     
     /**
-     * 获取android平台的相关配置
+     * 获取原生平台的相关配置
      */
-    suspend fun `getAndroidConfig`(): AndroidConfig
+    suspend fun `getAppConfig`(): AppConfig
     
     /**
-     * 获取当前activity（字符串形式）
+     * 获取当前页面（字符串形式）
      */
-    suspend fun `getCurrentActivity`(): kotlin.String
+    suspend fun `getCurrentPage`(): kotlin.String
     
     /**
-     * 打印debug日志
+     * 打印日志
      */
     suspend fun `logD`(`tag`: kotlin.String, `message`: kotlin.String)
     
@@ -1824,17 +1890,17 @@ public abstract class FfiConverterCallbackInterface<CallbackInterface: Any>: Ffi
 }
 
 // Put the implementation in an object so we don't pollute the top-level namespace
-internal object uniffiCallbackInterfaceAndroidDelegate {
-    internal object `getAndroidConfig`: UniffiCallbackInterfaceAndroidDelegateMethod0 {
+internal object uniffiCallbackInterfaceAppDelegate {
+    internal object `getAppConfig`: UniffiCallbackInterfaceAppDelegateMethod0 {
         override fun callback(`uniffiHandle`: Long,`uniffiFutureCallback`: UniffiForeignFutureCompleteRustBuffer,`uniffiCallbackData`: Long,`uniffiOutReturn`: UniffiForeignFuture,) {
-            val uniffiObj = FfiConverterTypeAndroidDelegate.handleMap.get(uniffiHandle)
+            val uniffiObj = FfiConverterTypeAppDelegate.handleMap.get(uniffiHandle)
             val makeCall = suspend { ->
-                uniffiObj.`getAndroidConfig`(
+                uniffiObj.`getAppConfig`(
                 )
             }
-            val uniffiHandleSuccess = { returnValue: AndroidConfig ->
+            val uniffiHandleSuccess = { returnValue: AppConfig ->
                 val uniffiResult = UniffiForeignFutureStructRustBuffer.UniffiByValue(
-                    FfiConverterTypeAndroidConfig.lower(returnValue),
+                    FfiConverterTypeAppConfig.lower(returnValue),
                     UniffiRustCallStatus.ByValue()
                 )
                 uniffiResult.write()
@@ -1859,11 +1925,11 @@ internal object uniffiCallbackInterfaceAndroidDelegate {
             )
         }
     }
-    internal object `getCurrentActivity`: UniffiCallbackInterfaceAndroidDelegateMethod1 {
+    internal object `getCurrentPage`: UniffiCallbackInterfaceAppDelegateMethod1 {
         override fun callback(`uniffiHandle`: Long,`uniffiFutureCallback`: UniffiForeignFutureCompleteRustBuffer,`uniffiCallbackData`: Long,`uniffiOutReturn`: UniffiForeignFuture,) {
-            val uniffiObj = FfiConverterTypeAndroidDelegate.handleMap.get(uniffiHandle)
+            val uniffiObj = FfiConverterTypeAppDelegate.handleMap.get(uniffiHandle)
             val makeCall = suspend { ->
-                uniffiObj.`getCurrentActivity`(
+                uniffiObj.`getCurrentPage`(
                 )
             }
             val uniffiHandleSuccess = { returnValue: kotlin.String ->
@@ -1893,9 +1959,9 @@ internal object uniffiCallbackInterfaceAndroidDelegate {
             )
         }
     }
-    internal object `logD`: UniffiCallbackInterfaceAndroidDelegateMethod2 {
+    internal object `logD`: UniffiCallbackInterfaceAppDelegateMethod2 {
         override fun callback(`uniffiHandle`: Long,`tag`: RustBuffer.ByValue,`message`: RustBuffer.ByValue,`uniffiFutureCallback`: UniffiForeignFutureCompleteVoid,`uniffiCallbackData`: Long,`uniffiOutReturn`: UniffiForeignFuture,) {
-            val uniffiObj = FfiConverterTypeAndroidDelegate.handleMap.get(uniffiHandle)
+            val uniffiObj = FfiConverterTypeAppDelegate.handleMap.get(uniffiHandle)
             val makeCall = suspend { ->
                 uniffiObj.`logD`(
                     FfiConverterString.lift(`tag`),
@@ -1927,9 +1993,9 @@ internal object uniffiCallbackInterfaceAndroidDelegate {
             )
         }
     }
-    internal object `getSystemTime`: UniffiCallbackInterfaceAndroidDelegateMethod3 {
+    internal object `getSystemTime`: UniffiCallbackInterfaceAppDelegateMethod3 {
         override fun callback(`uniffiHandle`: Long,`uniffiFutureCallback`: UniffiForeignFutureCompleteRustBuffer,`uniffiCallbackData`: Long,`uniffiOutReturn`: UniffiForeignFuture,) {
-            val uniffiObj = FfiConverterTypeAndroidDelegate.handleMap.get(uniffiHandle)
+            val uniffiObj = FfiConverterTypeAppDelegate.handleMap.get(uniffiHandle)
             val makeCall = suspend { ->
                 uniffiObj.`getSystemTime`(
                 )
@@ -1964,13 +2030,13 @@ internal object uniffiCallbackInterfaceAndroidDelegate {
 
     internal object uniffiFree: UniffiCallbackInterfaceFree {
         override fun callback(handle: Long) {
-            FfiConverterTypeAndroidDelegate.handleMap.remove(handle)
+            FfiConverterTypeAppDelegate.handleMap.remove(handle)
         }
     }
 
-    internal var vtable = UniffiVTableCallbackInterfaceAndroidDelegate.UniffiByValue(
-        `getAndroidConfig`,
-        `getCurrentActivity`,
+    internal var vtable = UniffiVTableCallbackInterfaceAppDelegate.UniffiByValue(
+        `getAppConfig`,
+        `getCurrentPage`,
         `logD`,
         `getSystemTime`,
         uniffiFree,
@@ -1979,12 +2045,12 @@ internal object uniffiCallbackInterfaceAndroidDelegate {
     // Registers the foreign callback with the Rust side.
     // This method is generated for each callback interface.
     internal fun register(lib: UniffiLib) {
-        lib.uniffi_rust_lib_fn_init_callback_vtable_androiddelegate(vtable)
+        lib.uniffi_rust_lib_fn_init_callback_vtable_appdelegate(vtable)
     }
 }
 
 // The ffiConverter which transforms the Callbacks in to handles to pass to Rust.
-public object FfiConverterTypeAndroidDelegate: FfiConverterCallbackInterface<AndroidDelegate>()
+public object FfiConverterTypeAppDelegate: FfiConverterCallbackInterface<AppDelegate>()
 
 
 
@@ -2092,7 +2158,7 @@ public object FfiConverterTypeCallbackTrait: FfiConverterCallbackInterface<Callb
          * 判断一个数是否为奇数
          * 但是这个数只能在 0 到 100 之间
          */
-    @Throws(GdException::class)
+    @Throws(UniffiException::class)
     @Suppress("ASSIGNED_BUT_NEVER_ACCESSED_VARIABLE")
      suspend fun `isOdd`(`num`: kotlin.Int) : kotlin.Boolean {
         return uniffiRustCallAsync(
@@ -2103,15 +2169,15 @@ public object FfiConverterTypeCallbackTrait: FfiConverterCallbackInterface<Callb
         // lift function
         { FfiConverterBoolean.lift(it) },
         // Error FFI converter
-        GdException.ErrorHandler,
+        UniffiException.ErrorHandler,
     )
     }
 
-    @Throws(GdException::class)
+    @Throws(UniffiException::class)
     @Suppress("ASSIGNED_BUT_NEVER_ACCESSED_VARIABLE")
-     suspend fun `register`(`delegate`: AndroidDelegate) {
+     suspend fun `register`(`delegate`: AppDelegate) {
         return uniffiRustCallAsync(
-        UniffiLib.INSTANCE.uniffi_rust_lib_fn_func_register(FfiConverterTypeAndroidDelegate.lower(`delegate`),),
+        UniffiLib.INSTANCE.uniffi_rust_lib_fn_func_register(FfiConverterTypeAppDelegate.lower(`delegate`),),
         { future, callback, continuation -> UniffiLib.INSTANCE.ffi_rust_lib_rust_future_poll_void(future, callback, continuation) },
         { future, continuation -> UniffiLib.INSTANCE.ffi_rust_lib_rust_future_complete_void(future, continuation) },
         { future -> UniffiLib.INSTANCE.ffi_rust_lib_rust_future_free_void(future) },
@@ -2119,7 +2185,7 @@ public object FfiConverterTypeCallbackTrait: FfiConverterCallbackInterface<Callb
         { Unit },
         
         // Error FFI converter
-        GdException.ErrorHandler,
+        UniffiException.ErrorHandler,
     )
     }
 

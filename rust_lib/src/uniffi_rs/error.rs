@@ -4,18 +4,18 @@ use std::fmt::Formatter;
 // #[cfg_attr(feature = "uniffi", derive(uniffi::Error))]
 // #[cfg_attr(feature = "napi", napi(string_enum))]
 #[derive(uniffi::Error, Debug)]
-pub enum GDError {
+pub enum UniffiError {
     NumberTooLarge,
     NumberTooSmall,
-    InitError,
+    InitError(String),
 }
 
-impl std::fmt::Display for GDError {
+impl std::fmt::Display for UniffiError {
     fn fmt(&self, f: &mut Formatter<'_>) -> std::fmt::Result {
         match self {
-            GDError::NumberTooLarge => write!(f, "Number too large"),
-            GDError::NumberTooSmall => write!(f, "Number too small"),
-            GDError::InitError => write!(f, "Init error"),
+            UniffiError::NumberTooLarge => write!(f, "Number too large"),
+            UniffiError::NumberTooSmall => write!(f, "Number too small"),
+            UniffiError::InitError(message) => write!(f, "Init error: {}", message),
         }
     }
 }

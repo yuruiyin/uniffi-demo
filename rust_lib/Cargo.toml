@@ -3,18 +3,39 @@ name = "rust_lib"
 version = "0.1.0"
 edition = "2021"
 
+[[bin]]
+name = "uniffi-bindgen"
+path = "uniffi-bindgen.rs"
+
+[lib]
+crate-type = ["cdylib", "lib", "staticlib"]
+
 [dependencies]
 uniffi = { version = "0.28.0", features = ["build", "cli"] }
+napi-ohos = { version = "1.0.0-beta.3", features = ["napi4", "async", "tokio_rt"] }
+napi-derive-ohos = { version = "1.0.0-beta.3" }
 lazy_static = "1.5.0"
 tokio = { version = "1.38.1", features = ["full"] } # 异步处理
 async-trait = "0.1.81"
 
 [build-dependencies]
 uniffi = { version = "0.28.0", features = ["bindgen"] }
+napi-build-ohos = { version = "1.0.0-beta.3" }
 
-[lib]
-crate-type = ["cdylib", "lib", "staticlib"]
+[features]
+napi = []
+uniffi = []
 
-[[bin]]
-name = "uniffi-bindgen"
-path = "uniffi-bindgen.rs"
+[profile.release]
+strip = true
+opt-level = "z"
+lto = true
+codegen-units = 1
+
+# 用于内部测试，release包，而且编译较快
+[profile.release-internal]
+inherits = "release"
+opt-level = 3
+strip = false
+lto = false
+codegen-units = 16

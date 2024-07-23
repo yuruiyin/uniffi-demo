@@ -6,8 +6,7 @@ import java.util.Locale
 
 /**
  *
- * Created by kongran on 2024/7/18
- * E-Mail Address：kongran@gaoding.com
+ * Created by yuruiyin on 2024/7/18
  */
 object TimeUtil {
 

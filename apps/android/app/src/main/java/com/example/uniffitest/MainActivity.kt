@@ -1,7 +1,6 @@
 package com.example.uniffitest
 
 import android.annotation.SuppressLint
-import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.ComponentActivity
@@ -13,13 +12,15 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.uniffitest.ui.theme.UniffiTestTheme
 import com.example.uniffitest.utils.TimeUtil
+import com.example.uniffitest.utils.getVersionName
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import uniffi.rust_lib.AndroidConfig
-import uniffi.rust_lib.AndroidDelegate
+import uniffi.rust_lib.AppConfig
+import uniffi.rust_lib.AppDelegate
 import uniffi.rust_lib.CallbackTrait
 import uniffi.rust_lib.Input
 
@@ -46,23 +47,25 @@ class MainActivity : ComponentActivity() {
     }
 }
 
+
 @SuppressLint("CoroutineCreationDuringComposition")
 @Composable
 fun Greeting(name: String, modifier: Modifier = Modifier) {
     val scope = rememberCoroutineScope()
+    val context = LocalContext.current
 
     // 初始化rust，将callback传到rust侧，rust侧持有，这样rust可以直接调用kotlin进而获取到android平台的能力
     scope.launch {
-        uniffi.rust_lib.register(object : AndroidDelegate {
-            override suspend fun getAndroidConfig(): AndroidConfig {
-                return AndroidConfig(
-                    version = Build.VERSION.SDK_INT,
-                    brand = Build.BRAND,
-                    model = Build.MODEL,
+        uniffi.rust_lib.register(object : AppDelegate {
+            override suspend fun getAppConfig(): AppConfig {
+                return AppConfig(
+                    version = context.getVersionName(),
+                    env = "dev",
+                    userId = "123",
                 )
             }
 
-            override suspend fun getCurrentActivity(): String {
+            override suspend fun getCurrentPage(): String {
                 return "MainActivity"
             }
 
