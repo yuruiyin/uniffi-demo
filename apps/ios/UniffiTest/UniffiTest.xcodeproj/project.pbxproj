@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E3C6C2D2C514C4700EA6072 /* rust_lib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3C6C2C2C514C4700EA6072 /* rust_lib.swift */; };
 		0E60FD802C50D0A10020F457 /* rust_lib_framework.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E60FD7F2C50D0A10020F457 /* rust_lib_framework.xcframework */; };
 		0EF3FEA62C4BEC8C00FD5752 /* UniffiTestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF3FEA52C4BEC8C00FD5752 /* UniffiTestApp.swift */; };
 		0EF3FEA82C4BEC8C00FD5752 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF3FEA72C4BEC8C00FD5752 /* ContentView.swift */; };
@@ -15,7 +16,6 @@
 		0EF3FEB72C4BEC8E00FD5752 /* UniffiTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF3FEB62C4BEC8E00FD5752 /* UniffiTestTests.swift */; };
 		0EF3FEC12C4BEC8E00FD5752 /* UniffiTestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF3FEC02C4BEC8E00FD5752 /* UniffiTestUITests.swift */; };
 		0EF3FEC32C4BEC8E00FD5752 /* UniffiTestUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF3FEC22C4BEC8E00FD5752 /* UniffiTestUITestsLaunchTests.swift */; };
-		0EF3FEFC2C4BFABF00FD5752 /* rust_lib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF3FEFB2C4BFABF00FD5752 /* rust_lib.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0E3C6C2C2C514C4700EA6072 /* rust_lib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = rust_lib.swift; path = "../../../../rust_lib/out/aarch64-apple-ios/rust_lib.swift"; sourceTree = "<group>"; };
 		0E60FD7F2C50D0A10020F457 /* rust_lib_framework.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = rust_lib_framework.xcframework; path = ../../../../rust_lib/out/rust_lib_framework.xcframework; sourceTree = "<group>"; };
 		0EF3FEA22C4BEC8C00FD5752 /* UniffiTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UniffiTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EF3FEA52C4BEC8C00FD5752 /* UniffiTestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniffiTestApp.swift; sourceTree = "<group>"; };
@@ -47,7 +48,6 @@
 		0EF3FEBC2C4BEC8E00FD5752 /* UniffiTestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UniffiTestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EF3FEC02C4BEC8E00FD5752 /* UniffiTestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniffiTestUITests.swift; sourceTree = "<group>"; };
 		0EF3FEC22C4BEC8E00FD5752 /* UniffiTestUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniffiTestUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		0EF3FEFB2C4BFABF00FD5752 /* rust_lib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = rust_lib.swift; path = "../../../../rust_lib/out/rust_lib_framework.xcframework/ios-arm64-simulator/Headers/rust_lib.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,7 +100,7 @@
 		0EF3FEA42C4BEC8C00FD5752 /* UniffiTest */ = {
 			isa = PBXGroup;
 			children = (
-				0EF3FEFB2C4BFABF00FD5752 /* rust_lib.swift */,
+				0E3C6C2C2C514C4700EA6072 /* rust_lib.swift */,
 				0EF3FEA52C4BEC8C00FD5752 /* UniffiTestApp.swift */,
 				0EF3FEA72C4BEC8C00FD5752 /* ContentView.swift */,
 				0EF3FEA92C4BEC8D00FD5752 /* Assets.xcassets */,
@@ -272,7 +272,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0EF3FEFC2C4BFABF00FD5752 /* rust_lib.swift in Sources */,
+				0E3C6C2D2C514C4700EA6072 /* rust_lib.swift in Sources */,
 				0EF3FEA82C4BEC8C00FD5752 /* ContentView.swift in Sources */,
 				0EF3FEA62C4BEC8C00FD5752 /* UniffiTestApp.swift in Sources */,
 			);
