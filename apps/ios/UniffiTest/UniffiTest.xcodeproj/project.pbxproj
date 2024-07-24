@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0EEF486C2C50052A002F69CF /* rust_lib_framework.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EEF486B2C50052A002F69CF /* rust_lib_framework.xcframework */; };
+		0E60FD802C50D0A10020F457 /* rust_lib_framework.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E60FD7F2C50D0A10020F457 /* rust_lib_framework.xcframework */; };
 		0EF3FEA62C4BEC8C00FD5752 /* UniffiTestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF3FEA52C4BEC8C00FD5752 /* UniffiTestApp.swift */; };
 		0EF3FEA82C4BEC8C00FD5752 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF3FEA72C4BEC8C00FD5752 /* ContentView.swift */; };
 		0EF3FEAA2C4BEC8D00FD5752 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EF3FEA92C4BEC8D00FD5752 /* Assets.xcassets */; };
@@ -36,7 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0EEF486B2C50052A002F69CF /* rust_lib_framework.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = rust_lib_framework.xcframework; path = ../../../../rust_lib/out/rust_lib_framework.xcframework; sourceTree = "<group>"; };
+		0E60FD7F2C50D0A10020F457 /* rust_lib_framework.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = rust_lib_framework.xcframework; path = ../../../../rust_lib/out/rust_lib_framework.xcframework; sourceTree = "<group>"; };
 		0EF3FEA22C4BEC8C00FD5752 /* UniffiTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UniffiTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EF3FEA52C4BEC8C00FD5752 /* UniffiTestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniffiTestApp.swift; sourceTree = "<group>"; };
 		0EF3FEA72C4BEC8C00FD5752 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -55,7 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0EEF486C2C50052A002F69CF /* rust_lib_framework.xcframework in Frameworks */,
+				0E60FD802C50D0A10020F457 /* rust_lib_framework.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,7 +137,7 @@
 		0EF3FED12C4BF1FF00FD5752 /* Framworks */ = {
 			isa = PBXGroup;
 			children = (
-				0EEF486B2C50052A002F69CF /* rust_lib_framework.xcframework */,
+				0E60FD7F2C50D0A10020F457 /* rust_lib_framework.xcframework */,
 			);
 			path = Framworks;
 			sourceTree = "<group>";
